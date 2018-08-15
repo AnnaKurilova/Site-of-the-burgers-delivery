@@ -1,0 +1,76 @@
+.review {
+    background: #000;
+}
+
+.review__list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.review__item {
+    height: 50%;
+    width: 25%;
+    background: center center / cover no-repeat;
+   filter: grayscale(100%);
+   position: relative;
+
+   @include tablets {
+    width: 50%;
+    height: 25%;
+  }
+
+
+   &:hover {
+       .review__hover {
+           opacity: 1;
+           visibility: visible;
+           transition: .5s;
+           
+       }
+   }
+
+      
+}
+
+.review__title {
+    font-size: rem(14px);
+    font-family: 'Gagalin-Regular';
+    margin-bottom: rem(40px);
+    @include tablets {
+        margin-bottom: rem(14px);
+      }
+}
+
+
+.review__hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(#141414, .7);
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    padding: rem(50px) rem(20px) rem(0px) rem(20px);
+
+    @include tablets {
+        font-size: rem(14px);
+        padding: 0 12%;
+        text-align: center;
+      }
+}
+
+.review__text {
+    font-size: rem(14px);
+    font-weight: 300;
+    margin-bottom: rem(20px);
+    line-height: 2;
+    
+    @include phones {
+        display: none;
+      }
+}

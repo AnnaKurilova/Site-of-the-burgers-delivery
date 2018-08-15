@@ -1,0 +1,97 @@
+.hero {
+  background: url(../img/background.jpg) center center/cover no-repeat; }
+
+.hero__container {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start; }
+
+.header {
+  margin-bottom: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+
+.header__logo {
+  width: 30%;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  padding-top: 12px; }
+
+.logo {
+  display: inline-block; }
+
+.header__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 40px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.nav {
+  margin-right: 20px; }
+
+.nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.nav__link {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px; }
+
+.nav__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  margin-right: 10px; }
+  .nav__item:first-child:before {
+    display: none; }
+  .nav__item:before {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    margin: 0 10 px; }
+  .nav__item:hover {
+    text-decoration: underline; }
+
+.btn {
+  background: .btn red;
+  border: 3px solid .btn red;
+  border-radius: 7px;
+  padding: 9px 16px;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1px; }
+
+.title {
+  font-size: 72px;
+  color: black;
+  margin-bottom: 45px;
+  font-family: 'Gagalin-Regular'; }
