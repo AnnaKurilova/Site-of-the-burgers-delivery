@@ -618,7 +618,11 @@ div {
   align-items: center; }
   @media screen and (max-width: 768px) {
     .header__menu {
-      display: none; } }
+      height: 0;
+      overflow: hidden; } }
+
+.header__menu--hiden {
+  display: none; }
 
 .nav {
   margin-right: 1.25rem; }
@@ -680,8 +684,7 @@ div {
   font-family: 'Gagalin-Regular'; }
   .title--color_yellow {
     color: #f9b43b;
-    padding-top: 4.375rem;
-    margin-bottom: 3.125rem; }
+    padding-top: 4.375rem; }
   .title--color_white {
     color: #fff;
     line-height: 1.1; }
@@ -1128,6 +1131,28 @@ div {
   margin-left: 2%;
   min-width: 5.3125rem; }
 
+.status-popup {
+  width: 240px;
+  padding: 10px; }
+
+.popup {
+  background: #f9f9f9;
+  border-radius: 4px;
+  display: none; }
+
+.status-popup__inner {
+  padding: 20px;
+  text-align: center; }
+
+.status-popup__message {
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-family: 'ubuntulight';
+  color: #2f3234; }
+
+.error-message {
+  color: #e35028; }
+
 .team {
   background: url(../img/team/background-team.jpg) 50% no-repeat;
   background-size: cover;
@@ -1220,7 +1245,8 @@ div {
 
 .team__accordion-content {
   padding-top: 0.875rem;
-  display: none; }
+  height: 0;
+  overflow: hidden; }
   @media screen and (max-width: 768px) {
     .team__accordion-content {
       -webkit-box-orient: vertical;
@@ -1317,15 +1343,16 @@ div {
   height: 100%;
   float: left;
   background: rgba(47, 50, 52, 0.93);
-  overflow: hidden; }
-  .menu__accordion-item--content-text {
-    font-weight: 300;
-    font-size: 0.875rem;
-    color: #fff;
-    padding: 3.75rem 1.875rem;
-    width: 550px;
-    line-height: 1.8;
-    display: none; }
+  overflow: hidden;
+  width: 0; }
+
+.menu__accordion-item--content-text {
+  font-weight: 300;
+  font-size: 0.875rem;
+  color: #fff;
+  padding: 60px 30px;
+  line-height: 1.8;
+  width: 550px; }
 
 .map {
   background: url("../img/map/map.jpg") center center/cover no-repeat; }
@@ -1424,6 +1451,19 @@ div {
   width: 1.25rem;
   height: 1.25rem; }
 
+.burgers {
+  background: #f9b43b;
+  background: -moz-linear-gradient(top, #f9b43b 0%, #eb8c38 33%, #eb8c38 66%, #f9b43b 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #f9b43b 0%, #eb8c38 33%, #eb8c38 66%, #f9b43b 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(linear, left top, left bottom, from(#f9b43b), color-stop(33%, #eb8c38), color-stop(66%, #eb8c38), to(#f9b43b));
+  background: -o-linear-gradient(top, #f9b43b 0%, #eb8c38 33%, #eb8c38 66%, #f9b43b 100%);
+  background: linear-gradient(to bottom, #f9b43b 0%, #eb8c38 33%, #eb8c38 66%, #f9b43b 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9b43b', endColorstr='#f9b43b',GradientType=0 );
+  /* IE6-9 */ }
+
 .burgers__container {
   position: relative;
   top: 50%;
@@ -1431,36 +1471,14 @@ div {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%); }
 
-.burgers {
-  background: #f9b43b;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #f9b43b 0%, #eb8c38 40%, #eb8c38 60%, #eb8c38 60%, #f9b43b 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #f9b43b 0%, #eb8c38 40%, #eb8c38 60%, #eb8c38 60%, #f9b43b 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, left bottom, from(#f9b43b), color-stop(40%, #eb8c38), color-stop(60%, #eb8c38), color-stop(60%, #eb8c38), to(#f9b43b));
-  background: -o-linear-gradient(top, #f9b43b 0%, #eb8c38 40%, #eb8c38 60%, #eb8c38 60%, #f9b43b 100%);
-  background: linear-gradient(to bottom, #f9b43b 0%, #eb8c38 40%, #eb8c38 60%, #eb8c38 60%, #f9b43b 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9b43b', endColorstr='#f9b43b',GradientType=0 );
-  /* IE6-9 */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center; }
-
 .burger-slider-wrap {
   position: relative; }
 
 .burger-slider__btn:hover .burger-slider__arrow {
   width: 40px; }
 
-.burger-slider__btn_next, .burger-slider__btn_prev {
+.burger-slider__btn_next,
+.burger-slider__btn_prev {
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -1495,21 +1513,16 @@ div {
 
 .burgers-slider__item {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding-top: 100px;
-  margin-bottom: 50px; }
+  padding-bottom: 85px;
+  display: inline-block; }
 
 .burgers-slider__item:after {
   clear: both; }
 
 .burgers-slider__left {
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
+  float: left;
   width: 50%;
-  padding-top: 25px; }
+  padding-top: 95px; }
 
 .burgers-slider__pic {
   display: inline-block;
@@ -1518,17 +1531,17 @@ div {
   height: 306px; }
 
 .burgers-slider__right {
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  width: 50%;
+  float: right;
+  width: 50%; }
+
+.burgers-slider__right {
   line-height: 1.1em; }
 
 .burgers-slider__price {
   display: inline-block;
   vertical-align: middle;
   color: #e35028;
-  font-family: 'Gagalin-Regular'; }
+  font-family: 'Gagalin-regular'; }
 
 .burgers-slider__price-amount,
 .burgers-slider__price-measure {
@@ -1582,7 +1595,7 @@ div {
 .ingredients__icon-text {
   color: white;
   font-size: 14px;
-  font-family: 'Gagalin-Regular'; }
+  font-family: 'Gagalin-regular'; }
 
 .ingredients__icon {
   position: absolute;
@@ -1640,13 +1653,13 @@ div {
   text-align: center;
   color: white;
   font-size: 20px;
-  font-family: 'Gagalin-Regular'; }
+  font-family: 'Gagalin-regular'; }
 
 .burger-weight__title {
   text-align: center;
   font-size: 14px;
   color: white;
-  font-family: 'Gagalin-Regular'; }
+  font-family: 'Gagalin-regular'; }
 
 .burgers-slider__text p {
   color: white;
@@ -1655,3 +1668,6 @@ div {
 .text-block p {
   font-size: 14px;
   line-height: 1.8; }
+
+.owl-carousel {
+  white-space: nowrap; }

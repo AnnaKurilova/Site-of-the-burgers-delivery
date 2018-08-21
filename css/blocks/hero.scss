@@ -48,6 +48,7 @@
     
 }
 
+
 .header__logo {
     width: 30%;
     justify-content: flex-start;
@@ -62,12 +63,18 @@
 .header__menu {
     display: flex;
     align-items: center;
+    
     @include tablets {
-        display: none;
+        height: 0;
+        overflow: hidden;
     }
 }
 
 
+.header__menu--hiden {
+    display: none;
+
+}
 
 .nav {
     margin-right: rem(20px);
@@ -76,6 +83,10 @@
 .nav__list {
     display: flex;
     align-items: center;
+
+    @include tablets {
+
+    }
 }
 
 .nav__link {
@@ -145,7 +156,7 @@
         &_yellow {
             color: $yellow;
             padding-top: rem(70px);
-            margin-bottom: rem(50px);
+           
         }
     }
 
@@ -179,6 +190,7 @@
 
     @include tablets {
     display: flex;
+
   }
 }
 

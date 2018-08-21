@@ -65,18 +65,21 @@
 	float: left;
 	background: rgba(#2f3234, .93);
     overflow: hidden;
+    width: 0;
     
-    &-text {
+  
+}
+
+
+.menu__accordion-item--content-text {
     font-weight: 300;
 	font-size: rem(14px);
 	color: #fff;
-	padding: rem(60px) rem(30px);
-	width: 550px;
+	padding: 60px 30px;
     line-height: 1.8;
-    display: none;
-    }
+    width: 550px;
+   
 }
-
 
 
 
