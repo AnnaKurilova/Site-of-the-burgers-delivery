@@ -88,16 +88,70 @@ $(document).ready(function () {
 
 
 
+//SLIDER OWL CAROUSEL
+
+$(function () {
+
+    var burgerCarousel = $('.owl-carousel').owlCarousel({
+        items: 1,
+        smartSpeed: 2000, //Время движения слайда
+        loop: true
+    });
+
+    $('.burger-slider__btn_next').on('click', function (e) {
+        e.preventDefault();
+        burgerCarousel.trigger('next.owl.carousel');
+
+    });
+
+    $('.burger-slider__btn_prev').on('click', function (e) {
+        e.preventDefault();
+        burgerCarousel.trigger('prev.owl.carousel');
+
+    });
+
+});
 
 
+
+//HIDDEN MENU
 
 var openBtn = document.querySelector('.hamburger__menu-link');
-var closeBtn = document.querySelector
-var menu = document.querySelector('.nav__list');
+//var closeBtn = document.querySelector
+var menu = document.querySelector('.nav__hidden');
 
 openBtn.addEventListener ('click', function (e) {
     e.preventDefault();
-    menu.classList.remove('nav-list--hiden');
+    menu.classList.remove('nav__hiden-list');
+});
+
+
+
+
+
+// Select the elements we want to show or hide
+var mobileBtn = document.querySelector('.hamburger__menu-link');
+var menu = document.querySelector('.nav__list');
+var closeBtn = document.querySelector('.nav__item-close');
+
+
+
+// When the user clicks on the hamburger icon the 'open' class is added
+// to both the menu and overlay elements making them visible and triggering the animation
+mobileBtn.addEventListener('click', function(){
+  menu.className += ' open';
+  
+ 
+})
+
+
+
+// When the close button is clicked the 'open' class is removed from
+// both the menu and overlay elements making them invisible
+closeBtn.addEventListener('click', function(){
+  menu.className = 'nav__list';
+  
+ 
 });
 
 
@@ -106,51 +160,9 @@ openBtn.addEventListener ('click', function (e) {
 
 
 
+//VERTICAL ACCORDION
 
-
-var leftArrow = document.querySelector('.burger-slider__btn_prev');
-var rightArrow = document.querySelector('.burger-slider__btn_next');
-var sliderList = document.querySelector('.owl-carousel');
-var sliderContainer = document.querySelector('.burger-slider-wrap');
-var size = parseInt(getComputedStyle(sliderContainer).width);
-var start = 1;
-
-leftArrow.addEventListener('click', function (e) {
-    e.preventDefault();
-    var currentLeft = (parseInt(getComputedStyle(sliderList).left));
- 
-    if (start > 1 && currentLeft % size == 0) {        
-      sliderList.style.left = currentLeft + size + 'px';
-      start--;      
-      
-    } else if (currentLeft % size == 0) {
-      sliderList.style.left = currentLeft - 4 * size + 'px';
-      start = 5;      
-    }
- })
-
-rightArrow.addEventListener('click', function (e) {
-    e.preventDefault();
-    var currentLeft = (parseInt(getComputedStyle(sliderList).left));
-
-    if (start < 5 && currentLeft % size == 0) {
-
-        sliderList.style.left = currentLeft - size + 'px';
-        start++;
-    
-    } else if (currentLeft % size == 0) {
-      sliderList.style.left = 0 + 'px';
-      start = 1;     
-    }
-})
-
-
-
-
-
-//вертикальный аккордеон
-
-var accordion = document.querySelector('.team__content');
+var accordion = document.querySelector('.team__accordion');
 var items = accordion.getElementsByClassName("team__accordion-item");
 var contents = accordion.getElementsByClassName("team__accordion-content");
 var i;
@@ -188,7 +200,7 @@ accordion.addEventListener("click", function(e) {
   }); 
 
 
-//горизонтальный аккордеон
+//HORIZONTAL ACCORDION
 
 $(function () {
     $('.menu__accordion-trigger').on('click', function (e) {
@@ -239,7 +251,97 @@ $(function () {
 });
 
 
-  //INPUT MASK
+//MAPS
+
+ymaps.ready(init);
+
+var placemarks = [
+    {
+        latitude: 59.94554327989287,
+        longitude: 30.38935262114668,
+        hintContent: '<div class="map__hint">Суворовский проспект, 67</div>',
+        balloonContent: []
+    },
+    {
+        latitude: 59.91142323563909,
+        longitude: 30.50024587065841,
+        hintContent: '<div class="map__hint">проспект Солидарности</div>',
+        balloonContent: []
+    },
+    {
+        latitude: 59.88693161784606,
+        longitude: 30.319658102103713,
+        hintContent: '<div class="map__hint">Московский проспект</div>',
+        balloonContent: []
+    },
+    {
+        latitude: 59.97033574821672,
+        longitude: 30.315194906302924,
+        hintContent: '<div class="map__hint">проспект Медиков, 7</div>',
+        balloonContent: []
+    }
+],
+    geoObjects= [];
+
+function init() {
+    var map = new ymaps.Map('map', {
+        center: [59.94, 30.32],
+        zoom: 12,
+        controls: ['zoomControl'],
+        behaviors: ['drag']
+    });
+
+    for (var i = 0; i < placemarks.length; i++) {
+            geoObjects[i] = new ymaps.Placemark([placemarks[i].latitude, placemarks[i].longitude],
+            {
+                hintContent: placemarks[i].hintContent,
+                balloonContent: placemarks[i].balloonContent.join('')
+            },
+            {
+                iconLayout: 'default#image',
+                iconImageHref: 'img/map/sprite.png',
+                iconImageSize: [46, 57],
+                iconImageOffset: [-23, -57],
+                iconImageClipRect: [[415, 0], [461, 57]]
+            });
+    }
+
+    var clusterer = new ymaps.Clusterer({
+        clusterIcons: [
+            {
+                href: 'img/map/burger.png',
+                size: [100, 100],
+                offset: [-50, -50]
+            }
+        ],
+        clusterIconContentLayout: null
+    });
+
+    map.geoObjects.add(clusterer);
+    clusterer.add(geoObjects);
+}
+
+
+ //POPUP
+
+ $(function () {
+    $('.btn-bg_black').on('click', function (e) {
+        e.preventDefault();
+        $('#element_to_pop_up').bPopup({
+            modalColor: '#2f3234',
+            opacity: 0.92
+        });
+
+        $('.full-review__close').on('click', function (e) {
+            e.preventDefault();
+            $.bPopup.close();
+        });
+
+    });
+
+});
+
+//INPUT MASK
 
   $(function () {
     $('.phone-mask').inputmask('+7 (999) 999 99 99');

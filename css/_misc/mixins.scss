@@ -28,3 +28,8 @@
 	background-position: center center;
 	background-repeat: no-repeat;
 }
+
+@mixin inlineblock ($valine: top) {
+	display: inline-block;
+	vertical-align: $valine;
+}
