@@ -1,5 +1,8 @@
 .review {
     background: #000;
+    @include tablets {
+        min-height: rem(0px);
+      }
 }
 
 .review__list {
@@ -55,11 +58,14 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    padding: rem(50px) rem(20px) rem(0px) rem(20px);
+    padding: 17% 12% 0;
+    transition: .3s;
 
     @include tablets {
-        font-size: rem(14px);
-        padding: 0 12%;
+        padding: 0 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         text-align: center;
       }
 }
@@ -67,10 +73,18 @@
 .review__text {
     font-size: rem(14px);
     font-weight: 300;
-    margin-bottom: rem(20px);
+    margin-bottom: rem(13px);
     line-height: 2;
     
     @include phones {
         display: none;
       }
+}
+
+
+.btn {
+    &-bg_black {
+        background-color: #2f3234;
+}
+
 }

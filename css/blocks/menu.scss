@@ -24,9 +24,9 @@
 }
 
 .menu__title {
-    font-size: 72px;
+    font-size: rem(72px);
     font-family: 'Gagalin-Regular';
-    margin-bottom: 12px;
+    margin-bottom: rem(12px);
     position: absolute;
     top: 10%;
     left: 10%;
@@ -42,6 +42,10 @@
 	@include cover;
 	text-decoration: none;
     position: relative;
+
+    @include phones {
+        width: rem(50px);
+    }
 }
 
 .menu__accordion-item-trigger {
@@ -56,6 +60,10 @@
     left: 50%;
     top: 100%;
     margin-top: rem(-20px);
+
+    @include phones {
+        font-size: rem(26px);
+      }
 }
 
 
@@ -75,10 +83,14 @@
     font-weight: 300;
 	font-size: rem(14px);
 	color: #fff;
-	padding: 60px 30px;
+	padding: rem(60px) rem(30px);
     line-height: 1.8;
-    width: 550px;
+    width: rem(550px);
+    
    
+    @include phones {
+        padding: rem(25px) rem(15px);
+      }
 }
 
 

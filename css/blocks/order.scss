@@ -56,12 +56,12 @@
     display: block;
     width: 100%;
     flex: 1;
-    margin-left: 10px;
+    margin-left: rem(10px);
 }
   
 .order__form-row {
     display: flex;
-    margin-left: -10px;
+    margin-left: rem(-10px);
 }
   
 .order__form-input_textarea {
@@ -135,7 +135,7 @@
     .order__radio-elem:checked {
       &+.order__radio-fake {
         &:after {
-          background: url("../../img/icons/check.svg") 50% no-repeat transparent;
+          background: url("../img/order/check.png") 50% no-repeat transparent;
           background-size: contain;
           width: rem(11px);
           height: rem(9px);
@@ -174,30 +174,3 @@
 
 
 
-.status-popup {
-    width: 240px;
-    padding: 10px;
-  }
-  
-  .popup {
-    background: #f9f9f9;
-    border-radius: 4px;
-    display: none;
-  }
-  
-  .status-popup__inner {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .status-popup__message {
-    margin-bottom: 20px;
-    font-size: 14px;
-    font-family: 'ubuntulight';
-    color: $black;
-  }
-  
-  .error-message {
-    color: #e35028;
-  }
-  
