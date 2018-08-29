@@ -12,12 +12,12 @@ $phones: 480px;
 @import "_misc/normalize.scss";
 
 // media
-@import "_misc/media";
+@import "_misc/media.scss";
 
 // setups
-@import "_misc/mixins";
-@import "_misc/fonts";
-@import "_misc/base";
+@import "_misc/mixins.scss";
+@import "_misc/fonts.scss";
+@import "_misc/base.scss";
 
 
 //common
@@ -34,9 +34,13 @@ $phones: 480px;
 @import "blocks/footer.scss";
 @import "blocks/socials.scss";
 @import "blocks/burgers.scss";
+@import "blocks/video.scss";
+@import "blocks/popups.scss";
+@import "blocks/player.scss";
 
 
 //sections
-@import "widgets/inputmask";
-@import "widgets/owl.carousel.min";
-@import "widgets/jquery.fancybox";
+@import "widgets/inputmask.scss";
+@import "widgets/owl.carousel.min.scss";
+@import "widgets/jquery.fancybox.scss";
+
